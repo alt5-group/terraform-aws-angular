@@ -5,7 +5,7 @@ data "aws_route53_zone" "zone" {
 }
 
 resource "aws_acm_certificate" "cert" {
-  provider = "aws.${var.acm_provider_alias}"
+  provider = "${local.acm_provider}"
   domain_name               = "*.${var.hosted_zone}"
   subject_alternative_names = ["${var.hosted_zone}"]
   validation_method         = "DNS"
