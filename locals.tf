@@ -7,4 +7,5 @@ locals {
   origin_bucket    = "${local.hosted_zone_dash}-origin"
   s3_origin_id     = "${local.origin_bucket}"
   log_bucket       = "${local.hosted_zone_dash}-cloudfront-log"
+  acm_provider = "aws.${var.acm_provider_alias}"
 }
