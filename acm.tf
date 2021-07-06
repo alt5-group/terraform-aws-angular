@@ -4,6 +4,11 @@ data "aws_route53_zone" "zone" {
   name = "${var.hosted_zone}."
 }
 
+provider "aws" {
+  region = "us-east-1"
+  alias = "acm_provider"
+}
+
 resource "aws_acm_certificate" "cert" {
   provider = aws.acm_provider
   domain_name               = "*.${var.hosted_zone}"
