@@ -4,7 +4,7 @@
 
 locals {
   hosted_zone_dash = "${replace(var.hosted_zone, ".", "-")}"
-  origin_bucket    = "${local.hosted_zone_dash}-origin"
+  origin_bucket    = "${local.hosted_zone_dash}-source"
   s3_origin_id     = "${local.origin_bucket}"
-  log_bucket       = "${local.hosted_zone_dash}-cloudfront-log"
+  log_bucket       = "${local.hosted_zone_dash}-cf-log"
 }
