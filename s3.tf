@@ -21,6 +21,9 @@ resource "aws_s3_bucket" "log" {
   bucket        = "${local.log_bucket}"
   acl           = "log-delivery-write"
   force_destroy = "${var.force_destroy}"
+  versioning {
+    enabled = true
+  }
 }
 
 resource "aws_s3_bucket_policy" "origin" {
