@@ -9,3 +9,6 @@ variable "force_destroy" {
 variable "region" {
   default = "us-east-1"
 }
+
+variable "route_53_primart_zone_id" {
+}
