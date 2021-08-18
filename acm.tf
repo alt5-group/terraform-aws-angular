@@ -20,6 +20,7 @@ resource "aws_route53_record" "cert_validation" {
       name   = dvo.resource_record_name
       record = dvo.resource_record_value
       type   = dvo.resource_record_type
+      zone_id = "${var.route_53_primart_zone_id}"
     }
   }
 
@@ -28,7 +29,7 @@ resource "aws_route53_record" "cert_validation" {
   records         = [each.value.record]
   ttl             = 60
   type            = each.value.type
-  zone_id         = "${var.route_53_primart_zone_id}"
+  zone_id         = each.value.zone_id
 }
 
 resource "aws_acm_certificate_validation" "cert" {
