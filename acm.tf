@@ -9,7 +9,7 @@ provider "aws" {
 resource "aws_acm_certificate" "cert" {
   provider = aws.acm_provider
   domain_name               = "*.${var.hosted_zone}"
-  subject_alternative_names = ["${var.hosted_zone}"]
+  subject_alternative_names = var.alt_domain_list
   validation_method         = "DNS"
   tags                      = {}
 }
