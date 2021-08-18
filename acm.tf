@@ -38,6 +38,4 @@ resource "aws_acm_certificate_validation" "cert" {
   validation_record_fqdns = ["${aws_route53_record.cert_validation[each.key].fqdn}"]
 }
 
-output "cert_arn" {
-  value = "${aws_acm_certificate.cert.arn}"
-}
+

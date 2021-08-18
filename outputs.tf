@@ -30,3 +30,7 @@ output "cloudfront_distribution_id" {
 output "cloudfront_distribution_arn" {
   value = "${aws_cloudfront_distribution.origin.arn}"
 }
+
+output "cert_arn" {
+  value = "${aws_acm_certificate.cert.arn}"
+}
