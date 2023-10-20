@@ -15,9 +15,6 @@ output "origin_bucket_regional_domain_name" {
   value = "${aws_s3_bucket.origin.bucket_regional_domain_name}"
 }
 
-output "log_bucket_id" {
-  value = "${aws_s3_bucket.log.id}"
-}
 
 output "cloudfront_distribution_domain_name" {
   value = "${aws_cloudfront_distribution.origin.domain_name}"
