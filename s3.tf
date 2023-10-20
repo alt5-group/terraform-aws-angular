@@ -28,6 +28,10 @@ resource "aws_s3_bucket" "log" {
   bucket        = "${local.log_bucket}"
   acl           = "log-delivery-write"
   force_destroy = "${var.force_destroy}"
+
+  versioning {
+    enabled = true
+  }
   server_side_encryption_configuration {
     rule {
       apply_server_side_encryption_by_default {
