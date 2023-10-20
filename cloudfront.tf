@@ -20,10 +20,6 @@ resource "aws_cloudfront_distribution" "origin" {
     }
   }
 
-  logging_config {
-    include_cookies = false
-    bucket          = "${aws_s3_bucket.log.bucket_domain_name}"
-  }
 
   default_cache_behavior {
     allowed_methods        = ["GET", "HEAD"]
