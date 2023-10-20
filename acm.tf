@@ -1,8 +1,5 @@
 # spa/acm
 
-data "aws_route53_zone" "zone" {
-  name = "${var.hosted_zone}."
-}
 
 provider "aws" {
   region = "us-east-1"
@@ -31,7 +28,7 @@ resource "aws_route53_record" "cert_validation" {
   records         = [each.value.record]
   ttl             = 60
   type            = each.value.type
-  zone_id         = "${data.aws_route53_zone.zone.id}"
+  zone_id         = "${var.route_53_primart_zone_id}"
 }
 
 resource "aws_acm_certificate_validation" "cert" {
@@ -41,6 +38,5 @@ resource "aws_acm_certificate_validation" "cert" {
   validation_record_fqdns = ["${aws_route53_record.cert_validation[each.key].fqdn}"]
 }
 
-output "cert_arn" {
-  value = "${aws_acm_certificate.cert.arn}"
-}
+
+

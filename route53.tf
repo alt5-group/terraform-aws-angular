@@ -1,7 +1,7 @@
 # spa/route53_apex_and_www
 
 resource "aws_route53_record" "apex" {
-  zone_id = "${data.aws_route53_zone.zone.id}"
+  zone_id = "${var.route_53_primart_zone_id}"
 
   name = "${var.hosted_zone}"
   type = "A"
@@ -18,7 +18,7 @@ resource "aws_route53_record" "apex" {
 }
 
 resource "aws_route53_record" "www" {
-  zone_id = "${data.aws_route53_zone.zone.id}"
+  zone_id = "${var.route_53_primart_zone_id}"
 
   name    = "www.${var.hosted_zone}"
   type    = "CNAME"
